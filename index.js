@@ -11,6 +11,7 @@ express()
   .get("/", (req, res) => res.render("pages/index"))
   .get("/cool", (req, res) => res.send(cool()))
   .get("/times", (req, res) => res.send(showTimes()))
+  .get("/test", (req, res) => res.send(test()))
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
   
 showTimes = () => {
@@ -20,4 +21,8 @@ showTimes = () => {
     result += i + " ";
   }
   return result;
+};
+
+test = () => {
+  return process.env.TEST;
 };
