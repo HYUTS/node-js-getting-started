@@ -33,7 +33,7 @@ testFetch = () => {
     return new DOMParser().parseFromString(raw, "text/html");
   }
   // Minimal fetch
-  fetch(process.env.URL)
+  fetch("https://chrome.google.com/webstore/detail/amazon-wishlist-subtotal/ikdiffamkfcbglfejmhioopagbponbmb")
     .then((e) => e.text())
     .then((e) => {
       console.log(htmlParse(e));
