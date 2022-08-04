@@ -11,7 +11,7 @@ express()
   .get("/cool", (req, res) => res.send(cool()))
   .get("/times", (req, res) => res.send(showTimes()))
   .get("/test", (req, res) => res.send(test()))
-  .get("/testFetch", (req, res) => res.send(testFetch()))
+  .get("/commands", (req, res) => res.send(commands()))
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 showTimes = () => {
@@ -27,18 +27,21 @@ test = () => {
   return process.env.TEST;
 };
 
-testFetch = () => {
+commands = () => {
+  return `git add .
+  git commit -m "Add cool face API"
+  git push heroku main`
   // Minimal parser
-  function htmlParse(raw) {
-    return new DOMParser().parseFromString(raw, "text/html");
-  }
-  // Minimal fetch
-  fetch("/")
-    .then((e) => e.text())
-    .then((e) => {
-      let html = htmlParse(e);
-      console.log(html);
-      document.body.innerHTML = html;
-      return html;
-    });
+  // function htmlParse(raw) {
+  //   return new DOMParser().parseFromString(raw, "text/html");
+  // }
+  // // Minimal fetch
+  // fetch("/")
+  //   .then((e) => e.text())
+  //   .then((e) => {
+  //     let html = htmlParse(e);
+  //     console.log(html);
+  //     document.body.innerHTML = html;
+  //     return html;
+  //   });
 };
