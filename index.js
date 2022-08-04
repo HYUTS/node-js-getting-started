@@ -27,7 +27,7 @@ test = () => {
   return process.env.TEST;
 };
 
-function testFetch() {
+testFetch = () => {
   // Minimal parser
   function htmlParse(raw) {
     return new DOMParser().parseFromString(raw, "text/html");
