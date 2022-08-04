@@ -27,16 +27,18 @@ test = () => {
   return process.env.TEST;
 };
 
-testFetch = () => {
+function testFetch() {
   // Minimal parser
   function htmlParse(raw) {
     return new DOMParser().parseFromString(raw, "text/html");
   }
   // Minimal fetch
-  fetch("https://chrome.google.com/webstore/detail/amazon-wishlist-subtotal/ikdiffamkfcbglfejmhioopagbponbmb")
+  fetch("/")
     .then((e) => e.text())
     .then((e) => {
-      console.log(htmlParse(e));
-      document.body.innerHTML = e;
+      let html = htmlParse(e);
+      console.log(html);
+      document.body.innerHTML = html;
+      return html;
     });
 };
